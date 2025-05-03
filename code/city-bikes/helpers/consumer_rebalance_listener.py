@@ -15,7 +15,7 @@ class ConsumerRebalanceListenerHandler(ConsumerRebalanceListener):
         current_offset[key] = OffsetAndMetadata(offset, 'commit')
 
     def on_partition_revoked(self, revoked):
-        self.consumer.commit(self.get_current_offset)
+        self.consumer.commit(self.get_current_offset())
         current_offset = {}
         
 
